@@ -19,3 +19,16 @@ This project has been given as a task by Geekshubs Academy during the FullStack 
 - MongoDb
 - Compass
 
+## Objectives
+
+- Create RESTful API
+- Have at least 2 entities (Users and Movies)
+- Prepare a CRUD on users (Create user; Read profile; Delete profile; Login(username & password without jwt???))
+- Prepare a CRUD on movies (Search by title, by id, all movies)
+- Use a MVC pattern
+- Proper README completion !!!
+
+### Extra points
+
+- admin and client roles
+- filter by genre and actors
