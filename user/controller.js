@@ -9,7 +9,6 @@ export const getTest = (req,res) => {
 export const postTest = async (req,res) => {
     const testData = new Model(req.body);
     await service.testPost(testData);
-    console.log('Post successful');
     res.json(testData);
 }
 
