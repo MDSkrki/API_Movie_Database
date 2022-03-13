@@ -12,3 +12,9 @@ export const postTest = async (req,res) => {
     console.log('Post successful');
     res.json(testData);
 }
+
+export const deleteTest = async (req, res) => {
+    const itemToDelete = service.testDelete(req.params.id);
+    await Model.deleteOne(itemToDelete);
+    res.json(itemToDelete);
+}
