@@ -3,8 +3,9 @@ import mongoose from "mongoose";
 const connection = async () => {
     try {
         await mongoose.connect('mongodb://localhost:27017/test');
-    } catch {
-        console.log('Connection to mongodb Failed');
+        console.log('Connection to mongodb successful');
+    } catch (error) {
+        console.log(error, 'Connection to mongodb failed');
     }
 }
 
@@ -14,6 +15,7 @@ const Schema = new mongoose.Schema({
     testKey: String
 })
 
-export const Model = mongoose.model('testCollection', Schema);
+const Model = mongoose.model('testCollection', Schema);
+export default Model;
 
 

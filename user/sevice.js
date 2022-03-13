@@ -3,5 +3,6 @@ export const testResponse = () => {
 }
 
 export const testPost = (body) => {
-    return body
+    body.save()
+    return body;
 }

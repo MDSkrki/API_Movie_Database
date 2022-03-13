@@ -1,12 +1,14 @@
 import * as service from "./sevice.js";
-import * as Model from "./model.js";
+import Model from "./model.js";
 
 export const getTest = (req,res) => {
     console.log(service.testResponse());
     res.send(service.testResponse());
 }
 
-export const postTest = (req,res) => {
+export const postTest = async (req,res) => {
+    const testData = new Model(req.body);
+    await service.testPost(testData);
     console.log('Post successful');
-    res.json(service.testPost(req.body));
+    res.json(testData);
 }
