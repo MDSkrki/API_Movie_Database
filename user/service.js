@@ -1,5 +1,5 @@
-export const testResponse = () => {
-    return 'Response successful';
+export const testResponse = (arr) => {
+    return arr;
 }
 
 export const testPost = (body) => {

@@ -1,9 +1,9 @@
-import * as service from "./sevice.js";
+import * as service from "./service.js";
 import Model from "./model.js";
 
-export const getTest = (req,res) => {
-    console.log(service.testResponse());
-    res.send(service.testResponse());
+export const getTest = async (req,res) => {
+    const items = await Model.find({});
+    res.json(service.testResponse(items));
 }
 
 export const postTest = async (req,res) => {
