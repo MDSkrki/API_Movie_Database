@@ -5,21 +5,21 @@ This project has been given as a task by Geekshubs Academy during the FullStack 
 
 ## Tech Stack
 
-
-- <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank"> 
+<p align='left'>
+  <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="Javascript Logo" width="40" height="40"/> 
   </a>
-- <a href="https://www.npmjs.com/package/express" target="_blank"> 
+  <a href="https://www.npmjs.com/package/express" target="_blank"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express Logo" width="40" height="40"/> 
   </a>
-- <a href="https://nodejs.org/" target="_blank"> 
+  <a href="https://nodejs.org/" target="_blank"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="NodeJS Logo" width="40" height="40"/> 
   </a>
+  <a href="https://www.mongodb.com/" target="_blank"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="MongoDb Logo" width="40" height="40"/> 
+  </a>
+</p>
 
-
-- Postman
-- MongoDb
-- Compass
 
 ## Objectives
 
