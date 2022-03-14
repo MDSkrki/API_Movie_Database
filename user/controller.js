@@ -1,8 +1,8 @@
 import User from "./model.js";
 
-export const getTest = async (req, res) => {
-    const items = await Model.find({});
-    res.json();
+export const getUser = async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.json(user);
 }
 
 export const createUser = async (req, res) => {

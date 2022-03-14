@@ -2,7 +2,7 @@ import express from "express";
 import * as controller from './controller.js';
 const router = express.Router();
 
-router.get('/', controller.getTest);
+router.get('/:id', controller.getUser); // Returns User if id is correct
 router.post('/', controller.createUser);
 router.delete('/:id', controller.deleteTest);
 router.patch('/:testKey', controller.patchTestByTestKey);
