@@ -1,4 +1,5 @@
 import User from "./model.js";
+//TODO: catch errors
 
 export const getAllUsers = async (req, res) => {
     const users = await User.find({});
