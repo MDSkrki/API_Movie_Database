@@ -15,9 +15,8 @@ export const deleteUserById = async (req, res) => {
     res.json(user);
 }
 
-export const patchTestByTestKey = async (req, res) => {
-    const filter = { testKey: req.params.testKey };
+export const updateUserById = async (req, res) => {
     const update = req.body;
-    const previousValue = await Model.findOneAndUpdate(filter, update);
+    const previousValue = await User.findByIdAndUpdate(req.params.id, update)
     res.json(previousValue);
 }

@@ -5,6 +5,6 @@ const router = express.Router();
 router.get('/:id', controller.getUser); // Returns User if id is correct
 router.post('/', controller.createUser);
 router.delete('/:id', controller.deleteUserById);
-router.patch('/:testKey', controller.patchTestByTestKey);
+router.patch('/:id', controller.updateUserById);
 
 export default router;
