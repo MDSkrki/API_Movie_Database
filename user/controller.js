@@ -23,6 +23,6 @@ export const deleteUserById = async (req, res) => {
 
 export const updateUserById = async (req, res) => {
     const update = req.body;
-    const previousValue = await User.findByIdAndUpdate(req.params.id, update)
+    const previousValue = await User.findByIdAndUpdate(req.params.id, update);
     res.json(previousValue);
 }
