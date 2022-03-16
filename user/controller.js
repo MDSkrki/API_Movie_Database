@@ -1,4 +1,5 @@
 import User from "./model.js";
+import * as service from './service.js'
 
 
 export const getAllUsers = async (req, res) => {
@@ -23,7 +24,15 @@ export const getUserById = async (req, res) => {
 
 export const createUser = async (req, res) => {
     try {
-        const user = await User.create(req.body);
+        const user = await User.create({
+            userName : req.body.userName,
+            password : await service.hasher(req.body.password),
+            email : req.body.email,
+            role : 'user',
+        });
+        const token = service.tokenGenerator(user.role);
+        console.log(token);
+        //created user using only fields i want, including forced role and hashed password.
         res.json(user);
     } catch (error) {
         console.log(error);
