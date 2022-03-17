@@ -32,7 +32,6 @@ export const createUser = async (req, res) => {
         });
         const token = service.tokenGenerator(user.role);
         console.log(token);
-        //created user using only fields i want, including forced role and hashed password.
         res.json(user);
     } catch (error) {
         console.log(error);
@@ -58,6 +57,6 @@ export const updateUserById = async (req, res) => {
         res.json(previousValue);
     } catch (error) {
         console.log(error);
-        res.send(erorr);
+        res.send(error);
     }
 }

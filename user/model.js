@@ -1,13 +1,5 @@
 import mongoose from "mongoose";
-
-const connection = async () => {
-    try {
-        await mongoose.connect('mongodb://localhost:27017/API_Movie_Database');
-        console.log('Connection to mongodb successful');
-    } catch (error) {
-        console.log(error, 'Connection to mongodb failed');
-    }
-}
+import connection from "../config/db.js";
 
 connection();
 
@@ -17,7 +9,6 @@ const UserSchema = new mongoose.Schema({
     email: String,
     role: String // roles should be either "admin" or "user", giving more or less permissions
 })
-
 
 const User = mongoose.model('Users', UserSchema);
 export default User;
