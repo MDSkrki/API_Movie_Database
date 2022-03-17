@@ -17,17 +17,3 @@ export const authenticator = (roleToCheck) => {
         }
     }
 }
-
-export const userFinder = async (req, res, next) => { // This should be the login controller
-    const user = await User.findOne({
-        email: req.headers.email,
-        password: req.headers.password, // TODO: check by decrypted password (bcrypt.compare(plaintext, hashedPassword)) returns true/false
-    });
-    if (user) {
-        const token = service.tokenGenerator(user.role, 'hehe');
-        console.log(token);
-        next();
-    } else {
-        res.status(401).send('User not found');
-    }
-}
