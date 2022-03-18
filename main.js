@@ -8,7 +8,9 @@ import dotenv from 'dotenv'
 const app = express();
 dotenv.config();
 
-app.listen(5000, ()=>{ console.log('Server successfully initiated at port 5000')});
+app.set("port", process.env.PORT || 5000)
+
+app.listen(app.get("port"), ()=>{ console.log('Server successfully initiated at port 5000')});
 connection();
 
 app.use(express.json());
