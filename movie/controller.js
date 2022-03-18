@@ -20,7 +20,7 @@ export const createMovie = async (req, res) => {
 }
 
 export const deleteMovie = async (req, res) => {
-    const movie = Movie.findByIdAndRemove(req.headers.id);
+    const movie = await Movie.findByIdAndDelete(req.params.id);
     res.json(movie);
 }
 
