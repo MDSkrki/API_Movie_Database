@@ -1,6 +1,6 @@
 import express from "express";
 import * as controller from './controller.js';
-import * as middleware from './middleware.js'
+import * as middleware from '../shared/middlewares/middleware.js'
 const router = express.Router();
 
 router.get('/', middleware.authenticator('admin'), controller.getAllUsers); // Should only be allowed as admin

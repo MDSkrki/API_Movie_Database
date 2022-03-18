@@ -1,4 +1,4 @@
-import * as service from '../shared/services/service.js'
+import * as service from '../services/service.js'
 
 
 export const authenticator = (roleToCheck) => {
