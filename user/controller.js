@@ -69,7 +69,7 @@ export const userLogin = async (req, res, next) => { // This should be the login
     if (user) {
         const token = service.tokenGenerator(user.role, 'hehe');
         console.log(token);
-        next();
+        res.send(token)
     } else {
         res.status(401).send('User not found');
     }
