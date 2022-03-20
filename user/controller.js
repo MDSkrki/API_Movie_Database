@@ -4,18 +4,12 @@ import * as service from '../shared/services/service.js'
 
 export const getAllUsers = async (req, res) => {
     try {
-        const users = await User.find({});
-        res.status(200).json(users);
-    } catch (error) {
-        console.log(error);
-        res.send(error);
-    }
-}
-
-export const getUserById = async (req, res) => {
-    try {
-        const user = await User.findById(req.params.id);
-        res.json(user);
+        const user = {}
+        if (req.query.id) user._id = req.query.id;
+        if (req.query.username) user.userName = req.query.username;
+        if (req.query.email) user.email = req.query.email;
+        if (req.query.role) user.role = req.query.role;
+        res.status(200).json(await User.find(user));
     } catch (error) {
         console.log(error);
         res.send(error);
@@ -64,10 +58,11 @@ export const updateUserById = async (req, res) => {
 export const userLogin = async (req, res) => {
     try {
         const user = await User.findOne({
-            email: req.headers.email,
+            email: req.body.email,
         });
+        console.log(user);
         // passCorrect checks if password provided by user is the same as the hashed version stored in database
-        const passCorrect = await service.passChecker(req.headers.password, user.password);
+        const passCorrect = await service.passChecker(req.body.password, user.password);
         if (passCorrect) {
             const token = service.tokenGenerator(user.role, process.env.JWT_SECRET);
             console.log(token);

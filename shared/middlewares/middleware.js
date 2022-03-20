@@ -1,11 +1,11 @@
-import * as service from '../services/service.js'
+import * as service from '../services/service.js';
 
 
-export const authenticator = (roleToCheck) => {
+const authenticator = (roleToCheck) => {
     return (req, res, next) => {
         try {
             const role = service.tokenChecker(req.headers.token, process.env.JWT_SECRET);
-            if (role == roleToCheck) {
+            if (role == roleToCheck || role == 'admin') {
                 next();
                 return;
             }
@@ -16,3 +16,4 @@ export const authenticator = (roleToCheck) => {
         }
     }
 }
+export default authenticator;
