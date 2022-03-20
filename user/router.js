@@ -4,8 +4,8 @@ import * as middleware from '../shared/middlewares/middleware.js'
 const router = express.Router();
 
 router.get('/', middleware.authenticator('admin'), controller.getAllUsers); // Should only be allowed as admin
-router.delete('/:id', controller.deleteUserById); //Should only be allowed as admin or to remove itself
-router.patch('/:id', controller.updateUserById); //Should only be allowed by admin or to update itself
+router.delete('/:id', middleware.authenticator('admin'), controller.deleteUserById); //Should only be allowed as admin or to remove itself
+router.patch('/:id', middleware.authenticator('admin'), controller.updateUserById); //Should only be allowed by admin or to update itself
 
 router.post('/register', controller.createUser); //this creates a user and gives a token directly (no login necessary after register)
 router.post('/login', controller.userLogin); // this checks if user exists and gives token
