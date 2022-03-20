@@ -55,7 +55,8 @@ It is not intended for full use, but as a test of knowledge.
 ## Usage Pre-requisites
 - A very nice tool to have is Postman, in order to test the RESTful API as a simulted client.
 - The following tokens are provided in order to simplify the testing methdology:
-- 
+- admin role jwt token: ´eyJhbGciOiJIUzI1NiJ9.YWRtaW4.fPmKIg7VMPpkFfK1W9zQ5trxDEIR8jvYMvV5bWDSzzM´
+- user role jwt token: ´eyJhbGciOiJIUzI1NiJ9.dXNlcg.U8u8lcZMAGiVR4RoK3JPeeDXJl87pwYAnVw0cT2E6bA´
 
 ## Project functionality 
 The API has been deployed thanks to the free services of [Heroku](https://www.heroku.com/) and [MongoAtlas](https://www.mongodb.com/atlas/database).\
