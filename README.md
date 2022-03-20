@@ -34,3 +34,10 @@ This project has been given as a task by Geekshubs Academy during the FullStack 
 
 - admin and client roles
 - filter by genre and actors
+
+## Pending tasks 
+
+- Create proper documentation with SwaggerUI
+- Create logs with Winston and Morgan
+- Create movie basic renting functionality (using populate)
+- Edit response status appropiately
