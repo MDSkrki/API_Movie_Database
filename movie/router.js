@@ -8,5 +8,5 @@ router.post('/', controller.createMovie);
 router.delete('/:id', controller.deleteMovie);
 router.patch('/:id', controller.updateMovie);
 
-
+router.post('/seeder', controller.seeder);
 export default router;

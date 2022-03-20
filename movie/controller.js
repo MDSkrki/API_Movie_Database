@@ -1,3 +1,4 @@
+import seed from "../config/MOCK_DATA.js";
 import Movie from "./model.js";
 
 export const getMovie = async (req, res) => {
@@ -25,7 +26,7 @@ export const createMovie = async (req, res) => {
         res.json(movie);
     } catch (error) {
         console.log(error);
-        res.send(error)
+        res.send(error);
     }
 }
 
@@ -42,7 +43,17 @@ export const deleteMovie = async (req, res) => {
 export const updateMovie = async (req, res) => {
     try {
         const movie = await Movie.findByIdAndUpdate(req.params.id, req.body);
-    res.json(movie);
+        res.json(movie);
+    } catch (error) {
+        console.log(error);
+        res.send(error);
+    }
+}
+
+export const seeder = async (req, res) => {
+    try {
+        await Movie.create(seed);
+        res.json('Database successfully filled with many fake movies');
     } catch (error) {
         console.log(error);
         res.send(error);
