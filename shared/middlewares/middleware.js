@@ -12,7 +12,7 @@ const authenticator = (roleToCheck) => {
             res.status(403).send('You do not have enough permissions to perform this operation.');
         } catch (error) {
             console.log(error);
-            res.send(error);
+            res.send(error, 'Token not valid');
         }
     }
 }

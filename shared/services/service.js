@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 export const tokenGenerator = (role) => {
-    try{
+    try {
         return jwt.sign(role, process.env.JWT_SECRET);
     } catch (error) {
         console.log(error);
@@ -15,7 +15,6 @@ export const tokenChecker = (token, secret) => {
     } catch (error) {
         console.log(error);
     }
-    
 }
 
 export const hasher = async (pass) => {
@@ -29,9 +28,8 @@ export const hasher = async (pass) => {
 
 export const passChecker = async (pass, hash) => {
     try {
-        return await bcrypt.compare(pass,hash);
-    } catch(error) {
+        return await bcrypt.compare(pass, hash);
+    } catch (error) {
         console.log(error);
     }
-    
 }
