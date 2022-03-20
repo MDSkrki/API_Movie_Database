@@ -67,7 +67,7 @@ export const userLogin = async (req, res, next) => { // This should be the login
         password: req.headers.password, // TODO: check by decrypted password (bcrypt.compare(plaintext, hashedPassword)) returns true/false
     });
     if (user) {
-        const token = service.tokenGenerator(user.role, 'hehe');
+        const token = service.tokenGenerator(user.role, process.env.JWT_SECRET);
         console.log(token);
         res.send(token)
     } else {
