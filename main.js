@@ -17,6 +17,6 @@ app.use('/movie', movieRouter);
 
 
 
-app.listen(app.get("port"), ()=>{ console.log('Server successfully initiated at port 3000')});
+app.listen(app.get("port"), ()=>{ console.log('Server successfully initiated at port 3000', "🎈")});
 
 

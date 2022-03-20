@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt'
 
 export const tokenGenerator = (role) => {
-    return jwt.sign(role, 'hehe');
+    return jwt.sign(role, process.env.JWT_SECRET);
 }
 
 export const tokenChecker = (token, secret) => {

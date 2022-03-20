@@ -4,7 +4,7 @@ import * as service from '../services/service.js'
 export const authenticator = (roleToCheck) => {
     return (req, res, next) => {
         try {
-            const role = service.tokenChecker(req.headers.token, 'hehe');
+            const role = service.tokenChecker(req.headers.token, process.env.JWT_SECRET);
             if (role == roleToCheck) {
                 next();
                 return;
