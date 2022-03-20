@@ -61,12 +61,13 @@ export const updateUserById = async (req, res) => {
     }
 }
 
-export const userLogin = async (req, res, next) => { // This should be the login controller
+export const userLogin = async (req, res) => {
     const user = await User.findOne({
         email: req.headers.email,
-        password: req.headers.password, // TODO: check by decrypted password (bcrypt.compare(plaintext, hashedPassword)) returns true/false
     });
-    if (user) {
+    // passCorrect checks if password provided by user is the same as the hashed version stored in database
+    const passCorrect = await service.passChecker(req.headers.password, user.password);
+    if (passCorrect) {
         const token = service.tokenGenerator(user.role, process.env.JWT_SECRET);
         console.log(token);
         res.send(token)
