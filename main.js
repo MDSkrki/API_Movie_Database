@@ -17,7 +17,4 @@ app.use('/user', userRouter);
 app.use('/movie', authenticator('user'), movieRouter);
 
 
-
 app.listen(app.get("port"), () => console.log('Server successfully initiated at port 5000', "🎈"));
-
-
