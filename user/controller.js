@@ -77,6 +77,7 @@ export const userLogin = async (req, res) => {
         }
     } catch (error) {
         console.log(error, 'Login failed');
+        res.send(error, 'Login failed');
     }
     
 }
