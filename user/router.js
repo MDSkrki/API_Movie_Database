@@ -1,17 +1,14 @@
 import express from "express";
 import * as controller from './controller.js';
-import * as middleware from '../shared/middlewares/middleware.js'
+import authenticator from '../shared/middlewares/middleware.js'
 const router = express.Router();
 
-router.get('/', middleware.authenticator('admin'), controller.getAllUsers); // Should only be allowed as admin
-router.delete('/:id', middleware.authenticator('admin'), controller.deleteUserById); //Should only be allowed as admin or to remove itself
-router.patch('/:id', middleware.authenticator('admin'), controller.updateUserById); //Should only be allowed by admin or to update itself
+//user visibility and editing only allowed for admins
+router.get('/', authenticator('admin'), controller.getAllUsers); 
+router.delete('/:id', authenticator('admin'), controller.deleteUserById); 
+router.patch('/:id', authenticator('admin'), controller.updateUserById); 
 
 router.post('/register', controller.createUser); //this creates a user and gives a token directly (no login necessary after register)
-router.post('/login', controller.userLogin); // this checks if user exists and gives token
+router.post('/login', controller.userLogin); // this checks if user exists and gives token if true
 
 export default router;
-
-
-//TODO: endpoint /register will create a user
-//TODO: make endpoint to createUser and store it into database, (token not necessary, but cool to have in order to avoid login post-signUp)
