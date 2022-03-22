@@ -3,7 +3,7 @@ import Movie from "./model.js";
 
 export const getMovie = async (req, res) => {
     try {
-        const movieToFind = {}
+        const movieToFind = {};
         if (req.query.id) movieToFind._id = req.query.id;
         if (req.query.title) movieToFind.title = req.query.title;
         if (req.query.director) movieToFind.director = req.query.director;
