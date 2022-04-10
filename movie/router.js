@@ -1,12 +1,12 @@
 import express from "express";
-import * as controller from './controller.js';
+import { getMovie, createMovie, deleteMovie, updateMovie, seeder } from "./controller.js";
 
 const router = express.Router();
 
-router.get('/', controller.getMovie);
-router.post('/', controller.createMovie);
-router.delete('/:id', controller.deleteMovie);
-router.patch('/:id', controller.updateMovie);
+router.get('/', getMovie);
+router.post('/', createMovie);
+router.delete('/:id', deleteMovie);
+router.patch('/:id', updateMovie);
 
-router.post('/seeder', controller.seeder);
+router.post('/seeder', seeder);
 export default router;
