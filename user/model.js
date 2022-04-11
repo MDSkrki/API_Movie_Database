@@ -2,10 +2,10 @@ import mongoose from "mongoose";
 import validator from 'validator';
 
 const UserSchema = new mongoose.Schema({
-    userName: String,
+    username: String,
     password: { type: String, required: true },
-    email: { type: String, required: true, validate: validator.isEmail }, // should be an email in the database
-    role: {type: String, enum: ['admin', 'user']}, // roles should be either "admin" or "user", giving more or less permissions
+    email: { type: String, required: true, unique: true, validate: validator.isEmail }, // should be an email in the database
+    role: {type: String, enum: ['admin', 'user']},
 })
 
 const User = mongoose.model('Users', UserSchema);
