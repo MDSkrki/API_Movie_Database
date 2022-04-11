@@ -2,8 +2,7 @@ import express from 'express';
 import userRouter from './user/router.js';
 import movieRouter from './movie/router.js'
 import connection from './config/db.js';
-import dotenv from 'dotenv'
-import authenticator from './shared/middlewares/middleware.js';
+import dotenv from 'dotenv';
 //import swaggerUi from 'swagger-ui-express';
 //import swaggerDoc from './config/swaggerDoc.js';
 
@@ -15,8 +14,8 @@ connection();
 
 app.set("port", process.env.PORT || 5000)
 app.use(express.json());
-app.use('api/user', userRouter);
-app.use('api/movie', authenticator('user'), movieRouter);
+app.use('/api/user', userRouter);
+app.use('/api/movie', movieRouter);
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 
