@@ -1,6 +1,8 @@
 import express from "express";
 import authenticator from '../shared/middlewares/middleware.js';
-import { getAllUsers, deleteUserById, updateUserById, createUser, userLogin } from "./controller.js";
+import { getAllUsers, deleteUserById, updateUserById, createUser, userLogin, adminCreator } from "./controller.js";
+
+// Router initialisation
 const router = express.Router();
 
 //user visibility and editing only allowed for admins
@@ -8,7 +10,11 @@ router.get('/', authenticator('admin'), getAllUsers);
 router.delete('/:id', authenticator('admin'), deleteUserById);
 router.patch('/:id', authenticator('admin'), updateUserById);
 
-router.post('/register', createUser); //this creates a user and gives a token directly (no login necessary after register)
-router.post('/login', userLogin); // this checks if user exists and gives token if true
+// Admins can access this endpoint to create more admins
+router.post('/admin', authenticator('admin'), adminCreator);
+
+// Free to enter endpoints in order to have users and give tokens
+router.post('/register', createUser); 
+router.post('/login', userLogin);
 
 export default router;
