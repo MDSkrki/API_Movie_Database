@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
-export const tokenGenerator = (role) => {
+export const tokenGenerator = (user) => {
     try {
-        return jwt.sign(role, process.env.JWT_SECRET);
+        return jwt.sign(user, process.env.JWT_SECRET);
     } catch (error) {
         console.log(error);
     }
