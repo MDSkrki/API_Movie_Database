@@ -12,11 +12,10 @@ dotenv.config();
 
 connection();
 
-app.set("port", process.env.PORT || 5000)
 app.use(express.json());
 app.use('/api/user', userRouter);
 app.use('/api/movie', movieRouter);
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 
-app.listen(app.get("port"), () => console.log('Server successfully initiated at port 5000', "🎈"));
+app.listen(process.env.PORT, () => console.log(`Server successfully initiated at port ${process.env.PORT}`, "🎈"));
