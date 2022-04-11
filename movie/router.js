@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', authenticator('user'), getMovie);
 router.post('/', authenticator('admin'), createMovie);
-router.delete('/:id', authenticator('admin'), deleteMovie);
+router.delete('/', authenticator('admin'), deleteMovie);
 router.patch('/:id', authenticator('admin'), updateMovie);
 
 router.post('/seeder', seeder);

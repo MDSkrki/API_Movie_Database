@@ -33,17 +33,13 @@ export const createMovie = async (req, res) => {
 export const deleteMovie = async (req, res) => {
     try {
         const query = {}
-        if (req.params.id) {
-            query = await Movie.findByIdAndDelete(req.params.id);
-            res.status(204).json(query);
-        }
+        if (req.query.id) query._id = req.query.id
         if (req.query.title) query.title = req.query.title;
         if (req.query.year) query.year = req.query.year;
         if (req.query.director) query.director = req.query.director;
         if (req.query.genre) query.genre = req.query.genre;
-        //const movie = await Movie.findByIdAndDelete(req.params.id);
-        const moviesDeleted = await Movie.deleteMany(query);
-        res.json(moviesDeleted);
+        await Movie.deleteMany(query);
+        res.status(204).json('Movies have been deleted');
     } catch (error) {
         console.log(error)
         res.send(error);
