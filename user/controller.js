@@ -59,9 +59,9 @@ export const userLogin = async (req, res) => {
         // passCorrect checks if password provided by user is the same as the hashed version stored in database
         const passCorrect = await passChecker(req.body.password, user.password);
         if (passCorrect) {
-            const token = tokenGenerator({role: user.role, id: user.id}, process.env.JWT_SECRET);
+            const token = tokenGenerator({role: user.role, id: user.id, username: user.username}, process.env.JWT_SECRET);
             console.log(token);
-            res.send(token)
+            res.send({token})
         } else {
             res.status(401).send('User not found');
         }

@@ -2,9 +2,8 @@ import mongoose from "mongoose";
 
 const MovieSchema = new mongoose.Schema({
     title: String,
-    year: Number,
-    genre: String,
-    director: String,
+    releaseDate: String,
+    img: String,
 });
 
 const Movie = mongoose.model('Movies', MovieSchema);
